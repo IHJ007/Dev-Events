@@ -1,40 +1,65 @@
-HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🚀 Dev Events
+A modern, high-performance web application designed to help developers find and manage tech events. This project is built with a focus on clean architecture, responsive design, and real-time user tracking.
 
-## Getting Started
+✨ Features
+Dynamic Event Cards: Beautifully mapped event components showing titles, dates, and locations.
 
-First, run the development server:
+Responsive UI: Optimized for both mobile and desktop views using Tailwind CSS.
 
-```bash
+Real-time Analytics: Integrated with PostHog to track user interactions and event popularity.
+
+Automated CI/CD: Fully deployed on Vercel with automatic updates via GitHub.
+
+🛠️ Tech Stack
+Framework: Next.js (App Router)
+
+Styling: Tailwind CSS & Lucide Icons
+
+Analytics: PostHog-js
+
+Deployment: Vercel
+
+Version Control: Git & GitHub
+
+🚀 Getting Started
+To run this project locally, follow these steps:
+
+1. Clone the repository
+Bash
+git clone https://github.com/IHJ007/Dev-Events.git
+cd Dev-Events
+2. Install dependencies
+Bash
+npm install
+3. Set up Environment Variables
+Create a .env.local file in the root directory and add your PostHog keys:
+
+Plaintext
+NEXT_PUBLIC_POSTHOG_KEY=your_key_here
+NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
+4. Run the development server
+Bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 with your browser to see the result.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+📈 Project Status
+[x] Initial UI Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[x] Deployment to Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+[x] PostHog Integration
 
-## Learn More
+[ ] Database Models (In Progress)
 
-To learn more about Next.js, take a look at the following resources:
+[ ] User Authentication (Coming Soon)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🤝 Contributing
+This is a personal learning project, but feel free to fork it and experiment!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Create a feature branch (git checkout -b feature/NewFeature).
 
-## Deploy on Vercel
+Commit your changes (git commit -m 'Add some NewFeature').
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Push to the branch (git push origin feature/NewFeature).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-# Dev-Events
-137e6a26efdeba35b77731b2e67233a1f63d3f87
+Open a Pull Request.
