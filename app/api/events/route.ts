@@ -1,27 +1,37 @@
-import Event from "@/database/event.model";
-import { connectToDatabase } from "@/lib/mongodb";
-import { NextRequest, NextResponse } from "next/server";
+import { db } from "@/lib/firebase"
+import { collection, getDocs, addDoc } from "firebase/firestore"
+import { NextResponse } from "next/server"
 
-export async function POST(req: NextRequest) {
-    try {
-        await connectToDatabase();
+// GET all events
+export async function GET() {
+  try {
+    const eventsRef = collection(db, "events")
+    const snapshot = await getDocs(eventsRef)
+    
+    const events = snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }))
 
-        const formData = await req.formData();
+    return NextResponse.json(events)
+  } catch (error) {
+    return NextResponse.json({ error: "Failed to fetch events" }, { status: 500 })
+  }
+}
 
-        let event;
+// POST a new event
+export async function POST(request: Request) {
+  try {
+    const body = await request.json()
+    const eventsRef = collection(db, "events")
+    
+    const docRef = await addDoc(eventsRef, {
+      ...body,
+      createdAt: new Date().toISOString()
+    })
 
-        try {
-            event = Object.fromEntries(formData.entries())
-        } catch (e) {
-            return (NextResponse.json({message : "Invalid JSON data format"}, {status : 400}))
-        }
-
-        const createdEvent = await Event.create(event);
-
-        return (NextResponse.json({message: "Event created successfully", event: createdEvent}, {status: 201}))
-
-    } catch (e) {
-        console.error(e);
-        return (NextResponse.json({message: "Event creation failed", error: e instanceof Error ? e.message: "Unknown"}, {status : 500}))
-    }
+    return NextResponse.json({ id: docRef.id, success: true })
+  } catch (error) {
+    return NextResponse.json({ error: "Failed to create event" }, { status: 500 })
+  }
 }
