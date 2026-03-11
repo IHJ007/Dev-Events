@@ -45,8 +45,6 @@ export async function POST(request: Request) {
   }
 
   try {
-    const body = await request.json()
-
     const docRef = await db.collection("events").add({
       ...body,
       createdAt: new Date().toISOString()

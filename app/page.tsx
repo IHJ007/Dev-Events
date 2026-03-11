@@ -5,10 +5,14 @@ import ExploreBtn from '@/components/ExploreBtn';
 import { EventItem } from '@/lib/constants';
 import React from 'react';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL?.replace(/\/+$/, "");
 
 async function page() {
-  const response = await fetch(`${BASE_URL}/api/events`);
+  const apiUrl = BASE_URL ? `${BASE_URL}/api/events` : "/api/events";
+  const response = await fetch(apiUrl, { cache: "no-store" });
+  if (!response.ok) {
+    throw new Error("Failed to fetch events");
+  }
   const events = await response.json();
 
   return (
@@ -23,9 +27,9 @@ async function page() {
         <h3>Featured Events</h3>
 
         <ul className='events list-none'>
-          {events && events.length > 0 && events.map((event : EventItem) => (
+          {events && events.length > 0 && events.map((event: EventItem) => (
             <li key={event.title}>
-              <EventCard {... event} />
+              <EventCard {...event} />
             </li>
           ))}
         </ul>
