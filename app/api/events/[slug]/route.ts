@@ -2,12 +2,10 @@ import { db } from "@/lib/firebaseAdmin";
 import { NextRequest, NextResponse } from "next/server";
 import { EventItem } from "@/lib/constants";
 
-export async function GET(
-    request: NextRequest,
-    context: { params: Promise<{ slug: string }> }
-) {
+export async function GET(request: NextRequest) {
     try {
-        const { slug } = await context.params;
+        const slug = request.nextUrl.pathname.split("/").pop();
+        
         const snapshot = await db.collection("events")
         .where("slug", "==", slug).get();
 
