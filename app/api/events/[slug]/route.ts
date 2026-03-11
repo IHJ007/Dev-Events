@@ -4,11 +4,12 @@ import { EventItem } from "@/lib/constants";
 
 export async function GET(
     request: NextRequest,
-    { params }: { params: { slug: string } }
+    { params }: { params: Promise<{ slug: string }> }
 ) {
     try {
+        const { slug } = await params;
         const snapshot = await db.collection("events")
-        .where("slug", "==", params.slug).get();
+        .where("slug", "==", slug).get();
 
         if (snapshot.empty) {
             return NextResponse.json(
