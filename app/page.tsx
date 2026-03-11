@@ -1,9 +1,16 @@
 import EventCard from '@/components/EventCard'
 import ExploreBtn from '@/components/ExploreBtn'
 import { EventItem } from '@/lib/constants';
-import React from 'react'
+import React from 'react';
+import { db } from "@/lib/firebaseAdmin";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+const snapshot = await db.collection("events").get();
+const events = snapshot.docs.map(doc => ({
+  id: doc.id,
+  ...doc.data()
+}));
 
 async function page() {
   const response = await fetch(`${BASE_URL}/api/events`);
