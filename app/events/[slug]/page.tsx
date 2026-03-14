@@ -15,7 +15,7 @@ const EventDetailsPage = async ({ params }: { params: Promise<{ slug: string }> 
     const request = await fetch(`${BASE_URL}/api/events/${slug}`);
     const { title, description, image, location, date, time } = await request.json();
 
-    if(!title) return (notFound);
+    if(!title) return notFound();
 
     return (
         <section id = "event" className="ml-10 mr-10">
