@@ -35,9 +35,9 @@ export async function GET(request: NextRequest) {
 export async function POST(request: Request) {
 
   const body = await request.json();
-  const { title, image, slug, location, date, time } = body;
+  const { title, imageUrl, slug, location, date, time } = body;
 
-  if (!title || !image || !slug || !location || !date || !time) {
+  if (!title || !imageUrl || !slug || !location || !date || !time) {
     return NextResponse.json(
       { error: "All fields are required" },
       { status: 400 }
