@@ -6,14 +6,14 @@ import posthog from 'posthog-js';
 
 interface Props {
     title : string;
-    image : string;
+    imageUrl : string;
     slug : string;
     location : string;
     date : string;
     time : string;
 }
 
-function EventCard({ title, image, slug, location, date, time } : Props) {
+function EventCard({ title, imageUrl, slug, location, date, time } : Props) {
   const handleClick = () => {
     posthog.capture('event_card_clicked', {
       event_title: title,
@@ -22,10 +22,10 @@ function EventCard({ title, image, slug, location, date, time } : Props) {
       event_date: date,
     });
   };
-  console.log("image value:", image);
+  console.log("image value:", imageUrl);
   return (
     <Link href = {`/events/${slug}`} id='event-card' onClick={handleClick}>
-        <Image src = {image} alt = {title} width = {410} height = {300} className = 'poster'/>
+        <Image src={imageUrl || 'https://picsum.photos/410/300'} alt={title} width={410} height={300} className='poster' />
 
         <div className='flex flex-row gap-2'>
           <Image src = "/icons/pin.svg" alt='location' width={14} height={14} />
