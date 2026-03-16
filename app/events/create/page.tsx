@@ -68,8 +68,8 @@ const CreateEventPage = () => {
           <input className="bg-dark-200 rounded-[6px] px-5 py-3 text-light-100 placeholder:text-light-200 text-center"
           type="text" name="description" placeholder="Description" value={description} onChange={handleChange} required />
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
-            <input className="bg-dark-200 rounded-[6px] px-5 py-3 text-light-100 placeholder:text-light-200 text-center"
+          <div className="flex flex-col gap-5 sm:gap-6">
+            <input className="bg-dark-200 rounded-[6px] px-5 py-3 text-light-100 placeholder:text-light-200 text-center [color-scheme:dark]"
             type="date" name="date" placeholder="Date" value={date} onChange={handleChange} required />
 
             <input className="bg-dark-200 rounded-[6px] px-5 py-3 text-light-100 placeholder:text-light-200 text-center"
@@ -79,22 +79,40 @@ const CreateEventPage = () => {
           <input className="bg-dark-200 rounded-[6px] px-5 py-3 text-light-100 placeholder:text-light-200 text-center"
           type="text" name="imageUrl" placeholder="Image URL" value={imageUrl} onChange={handleChange} required />
 
-          <input className="bg-dark-200 rounded-[6px] px-5 py-3 text-light-100 placeholder:text-light-200 text-center"
-          type="text" name="time" placeholder="Time (e.g. 6:30 PM)" value={time} onChange={handleChange} list="time-options" required />
-          <datalist id="time-options">
-            <option value="9:00 AM" />
-            <option value="10:00 AM" />
-            <option value="11:00 AM" />
-            <option value="12:00 PM" />
-            <option value="1:00 PM" />
-            <option value="2:00 PM" />
-            <option value="3:00 PM" />
-            <option value="4:00 PM" />
-            <option value="5:00 PM" />
-            <option value="6:00 PM" />
-            <option value="7:00 PM" />
-            <option value="8:00 PM" />
-          </datalist>
+          <select
+            className="bg-dark-200 rounded-[6px] px-5 py-3 text-light-100 text-center"
+            name="time"
+            value={time}
+            onChange={(event) => setTime(event.target.value)}
+            required
+          >
+            <option value="" disabled>Choose time</option>
+            <option value="8:00 AM">8:00 AM</option>
+            <option value="8:30 AM">8:30 AM</option>
+            <option value="9:00 AM">9:00 AM</option>
+            <option value="9:30 AM">9:30 AM</option>
+            <option value="10:00 AM">10:00 AM</option>
+            <option value="10:30 AM">10:30 AM</option>
+            <option value="11:00 AM">11:00 AM</option>
+            <option value="11:30 AM">11:30 AM</option>
+            <option value="12:00 PM">12:00 PM</option>
+            <option value="12:30 PM">12:30 PM</option>
+            <option value="1:00 PM">1:00 PM</option>
+            <option value="1:30 PM">1:30 PM</option>
+            <option value="2:00 PM">2:00 PM</option>
+            <option value="2:30 PM">2:30 PM</option>
+            <option value="3:00 PM">3:00 PM</option>
+            <option value="3:30 PM">3:30 PM</option>
+            <option value="4:00 PM">4:00 PM</option>
+            <option value="4:30 PM">4:30 PM</option>
+            <option value="5:00 PM">5:00 PM</option>
+            <option value="5:30 PM">5:30 PM</option>
+            <option value="6:00 PM">6:00 PM</option>
+            <option value="6:30 PM">6:30 PM</option>
+            <option value="7:00 PM">7:00 PM</option>
+            <option value="7:30 PM">7:30 PM</option>
+            <option value="8:00 PM">8:00 PM</option>
+          </select>
           
           <button className="bg-primary hover:bg-primary/90 w-full cursor-pointer rounded-[6px] px-4 py-3 text-lg font-semibold text-black" type="submit">Create Event</button>
         </form>
