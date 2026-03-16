@@ -10,7 +10,7 @@ A platform for developers to browse and share tech events — built as a hands-o
 
 | Layer | Tech |
 |---|---|
-| Framework | Next.js 15 (App Router) |
+| Framework | Next.js 16 |
 | Language | TypeScript |
 | Styling | Tailwind CSS |
 | Database | Firebase Firestore |
