@@ -1,65 +1,59 @@
-🚀 Dev Events
-A modern, high-performance web application designed to help developers find and manage tech events. This project is built with a focus on clean architecture, responsive design, and real-time user tracking.
+# 🛠️ Dev Events
 
-✨ Features
-Dynamic Event Cards: Beautifully mapped event components showing titles, dates, and locations.
+A platform for developers to browse and share tech events — built as a hands-on learning project while going deep on Next.js, Firebase, and TypeScript.
 
-Responsive UI: Optimized for both mobile and desktop views using Tailwind CSS.
+> Yeah, I built this myself. Mostly. (With a few hundred console.logs and a fair share of 404s along the way.)
 
-Real-time Analytics: Integrated with PostHog to track user interactions and event popularity.
+---
 
-Automated CI/CD: Fully deployed on Vercel with automatic updates via GitHub.
+## 🚀 Tech Stack
 
-🛠️ Tech Stack
-Framework: Next.js (App Router)
+| Layer | Tech |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS |
+| Database | Firebase Firestore |
+| Deployment | Vercel |
 
-Styling: Tailwind CSS & Lucide Icons
+---
 
-Analytics: PostHog-js
+## ✨ Features
 
-Deployment: Vercel
+- **Browse Events** — View all developer events in a clean, full-width list layout
+- **Event Details** — Dedicated page per event with full info (`/events/[slug]`)
+- **Create Events** — Submit new events via a form with imageURL support
+- **API Layer** — Clean REST-style API routes under `/api/events`
+- **SSR** — Server-side data fetching with Next.js App Router patterns
 
-Version Control: Git & GitHub
+---
 
-🚀 Getting Started
-To run this project locally, follow these steps:
+## 🧠 What I Learned Building This
 
-1. Clone the repository
-Bash
-git clone https://github.com/IHJ007/Dev-Events.git
-cd Dev-Events
-2. Install dependencies
-Bash
-npm install
-3. Set up Environment Variables
-Create a .env.local file in the root directory and add your PostHog keys:
+- How Next.js App Router actually works (file-based routing, layouts, server vs client components)
+- The difference between Firebase Admin SDK and Client SDK — and why mixing them up causes pain
+- API routes in Next.js and why you should never call `request.json()` twice
+- How Vercel caches aggressively and how to deal with it
+- Debugging is literally 70% of the job and that's okay
 
-Plaintext
-NEXT_PUBLIC_POSTHOG_KEY=your_key_here
-NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
-4. Run the development server
-Bash
-npm run dev
-Open http://localhost:3000 with your browser to see the result.
+---
 
-📈 Project Status
-[x] Initial UI Setup
+## 📌 Roadmap
 
-[x] Deployment to Vercel
+- [ ] Authentication (Firebase Auth)
+- [ ] Event categories / tags
+- [ ] Pagination
+- [ ] Better search
 
-[x] PostHog Integration
+---
 
-[ ] Database Models (In Progress)
+## 🙋 About
 
-[ ] User Authentication (Coming Soon)
+Built by **IHJ007** — a CSE student from Bangladesh working toward becoming a full-stack software engineer.  
+Learning in public. Breaking things. Fixing them. Repeat.
 
-🤝 Contributing
-This is a personal learning project, but feel free to fork it and experiment!
+---
 
-Create a feature branch (git checkout -b feature/NewFeature).
+## 📄 License
 
-Commit your changes (git commit -m 'Add some NewFeature').
-
-Push to the branch (git push origin feature/NewFeature).
-
-Open a Pull Request.
+MIT — do whatever you want with it.
