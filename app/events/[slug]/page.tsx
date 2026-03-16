@@ -13,7 +13,7 @@ const EventDetailItems = ({ icon, alt, label } : { icon:string, alt:string, labe
 const EventDetailsPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
     const { slug } = await params;
     const request = await fetch(`${BASE_URL}/api/events/${slug}`);
-    const { title, description, image, location, date, time } = await request.json();
+    const { title, description, imageUrl, location, date, time } = await request.json();
 
     if(!title) return notFound();
 
@@ -24,7 +24,7 @@ const EventDetailsPage = async ({ params }: { params: Promise<{ slug: string }> 
             </div>
 
             <div>
-                <Image src = {image} alt = "Event Banner" width = {3000} height = {1000} className = "banner mt-10 rounded-lg" />
+                <Image src = {imageUrl} alt = "Event Banner" width = {3000} height = {1000} className = "banner mt-10 rounded-lg" />
             </div>
 
             <section className="mt-6 flex flex-col gap-1">
