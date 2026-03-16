@@ -69,7 +69,7 @@ const CreateEventPage = () => {
           type="text" name="description" placeholder="Description" value={description} onChange={handleChange} required />
 
           <div className="flex flex-col gap-5 sm:gap-6">
-            <input className="bg-dark-200 rounded-[6px] px-5 py-3 text-light-100 placeholder:text-light-200 text-center [color-scheme:dark]"
+            <input className="bg-dark-200 rounded-[6px] px-5 py-3 text-light-100 placeholder:text-light-200 text-center scheme-dark"
             type="date" name="date" placeholder="Date" value={date} onChange={handleChange} required />
 
             <input className="bg-dark-200 rounded-[6px] px-5 py-3 text-light-100 placeholder:text-light-200 text-center"
